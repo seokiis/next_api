@@ -1,34 +1,26 @@
+import dbConnect from "@/db/dbConnect";
+
 import { NextApiRequest, NextApiResponse } from "next";
+import mongoose from "mongoose";
+import QRCode from "@/db/models/QRCode";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await dbConnect();
+
+  console.log(mongoose.connection.readyState);
+
   switch (req.method) {
-    case "POST":
-      res.status(201).send(req.body);
-      break;
-
     case "GET":
-      res.send([
-        {
-          id: "abc",
-          title: "위키피디아 Next.js",
-          url: "https://en.wikipedia.org/wiki/Next.js",
-        },
-        {
-          id: "def",
-          title: "코드잇 자유게시판",
-          url: "https://codeit.kr/community/general",
-        },
-        {
-          id: "ghi",
-          title: "코드잇 질문답변",
-          url: "https://www.codeit.kr/community/questions",
-        },
-      ]);
+      const qrcodes = await QRCode.find();
+      res.send(qrcodes);
       break;
-
+    case "POST":
+      const newQRCode = await QRCode.create(req.body);
+      res.send(newQRCode);
+      break;
     default:
       res.status(404).send({});
       break;
