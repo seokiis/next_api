@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/short-links/1234?q=123
+
+###
+
+POST http://localhost:3000/api/short-links/11
+Content-Type: application/json
+
+{
+  "title":"KRMRooMate"
+}
+
+###
+GET http://localhost:3000/api/short-links/21
+Cookie: session-id=KRM8812
