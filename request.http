@@ -11,14 +11,23 @@ GET http://localhost:3000/api/qrcodes/66466e03e6cf1a03aa6c5021
 ###
 
 
-POST http://localhost:3000/api/signup
+POST https://next-api-bay-zeta.vercel.app/api/signup
 Content-Type: application/json
 
 {
   "name":"ss",
-  "email":"test1.com",
+  "email":"seokiis@naver.com",
   "password":"1234",
   "role":"admin"
+}
+###
+
+POST https://next-api-bay-zeta.vercel.app/api/login
+Content-Type: application/json
+
+{
+  "email":"seokiis@naver.com",
+  "password":"1234"
 }
 ###
 
@@ -30,7 +39,7 @@ Content-Type: application/json
   "password":"1234"
 }
 ###
-GET https://next-api-bay-zeta.vercel.app/api/login
+POST https://next-api-bay-zeta.vercel.app/api/login
 Content-Type: application/json
 
 {
@@ -51,7 +60,7 @@ Content-Type: application/json
   "email":"cat1181123@naver.com",
   "password":"1234"
 }
-
+ㅊ
 ###
 
 GET http://localhost:3000/api/qrcodes
