@@ -16,9 +16,9 @@ Content-Type: application/json
 
 {
   "name":"ss",
-  "email":"seokiis@naver.com",
+  "email":"cat1@naver.com",
   "password":"1234",
-  "role":"admin"
+  "role":"student"
 }
 ###
 
